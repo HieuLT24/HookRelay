@@ -13,4 +13,17 @@ Reliable webhook delivery platform built as a NestJS modular monolith.
 
 The API is served under `/api/v1`, with Swagger available at `/docs`.
 
+## Frontend
+
+The React/Vite auth frontend lives in [`frontend/`](./frontend).
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+It expects the API at `http://localhost:3000/api/v1` by default. Override it
+with `frontend/.env` and `VITE_API_URL` when needed.
+
 PostgreSQL is the durable source of truth. Redis/BullMQ is used for scheduling and dispatch only. Delivery semantics are at-least-once; receivers must deduplicate by webhook ID.
